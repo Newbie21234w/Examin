@@ -7,8 +7,9 @@ session = requests.session()
 response = session.get(url, headers=header)
 if response.status_code == 200:
     soup = BeautifulSoup(response.text, features="lxml")
-    allproduct = soup.find("div",  class_="col-lg-4 col-md-sm-6")
-    products = allproduct.find_all("div", class_="card-text")
+    products = allProduct.find_all("div",class_="col-lg-4 col-md-4 col-sm-6 portfolio-item")
+title = products[i].find("h3", class_="card-title").text.strip()
+price = products[i].find("p", class_="card-text").text.strip()
 
 
 
